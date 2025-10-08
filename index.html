@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nómada Gastronomic Adventure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* --- ESTILOS CSS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: hsl(35, 19%, 44%);
+            background-color: #EBE6DF;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Header (Encabezado) --- */
+/* --- Header (Encabezado) --- */
+/* --- Header (Encabezado) --- */
+.main-header {
+    background-color: #B4A485; /* Color arena */
+    color: #4D4742; /* Texto oscuro */
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px; /* Altura fija para el encabezado */
+    flex-wrap: wrap;
+}
+
+.main-header .logo {
+    flex-grow: 1; /* Permite que el logo ocupe el espacio */
+    flex-basis: 0;
+}
+
+.main-header .logo img {
+    height: 140px; /* Tamaño del logo */
+    vertical-align: middle;
+}
+
+.main-nav {
+    flex-grow: 2; /* Permite que la navegación ocupe más espacio */
+    text-align: center; /* Centra el texto */
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center; /* Centra los elementos del menú */
+    gap: 30px;
+}
+
+.main-nav a {
+    color: #4D4742; /* Texto oscuro */
+    font-size: 1.1em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #6A5B49;
+}
+
+.social-whatsapp {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-grow: 1; /* Permite que este grupo ocupe espacio */
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+}
+
+.social-icon {
+    font-size: 1.5em;
+    color: #4D4742;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #6A5B49;
+}
+
+.whatsapp-button {
+    background-color: #6A5B49;
+    color: #EBE6DF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #8C7B65;
+}
+
+
+        /* --- Secciones de la Página --- */
+        .section {
+            padding: 50px 5%;
+        }
+
+        /* --- HOME --- */
+        .intro-mendoza {
+            text-align: center;
+        }
+
+        .intro-mendoza h1 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #4D4742;
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option-card {
+            background-color: #F8F5F0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 450px;
+            text-align: center;
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .option-card .image-wrapper {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .option-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .option-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #4D4742;
+        }
+
+        .option-card p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .call-to-action-button {
+            background-color: #C0A67B;
+            color: #4D4742;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .call-to-action-button:hover {
+            background-color: #D4B98E;
+        }
+
+        /* --- NUESTRAS EXPERIENCIAS (OCULTA POR DEFECTO) --- */
+        #nuestras-experiencias {
+            display: none;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .experience-card {
+            background-color: #F8F5F0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .experience-card .experience-image-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .experience-card .experience-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #4D4742;
+        }
+
+        .experience-card p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .more-info-button {
+            background-color: #C0A67B;
+            color: #4D4742;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-top: auto;
+        }
+
+        .more-info-button:hover {
+            background-color: #D4B98E;
+        }
+
+        /* --- ACERCA DE --- */
+        .about-us {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .about-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            color: #4D4742;
+        }
+
+        .about-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* --- CONTACTO --- */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-text {
+            max-width: 400px;
+        }
+
+        .contact-text h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4D4742;
+        }
+
+        .contact-text p {
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        .contact-form {
+            background-color: #F8F5F0;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            flex-grow: 1;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        
+        .contact-button {
+            background-color: transparent;
+            color: #4D4742;
+            padding: 12px 25px;
+            border: 1px solid #C0A67B;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #C0A67B;
+            color: #4D4742;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .options-container,
+            .about-us,
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .option-card,
+            .about-image-wrapper,
+            .about-text {
+                max-width: 100%;
+                min-width: unset;
+            }
+
+            .intro-mendoza h1,
+            .about-text h1,
+            .contact-text h1 {
+                font-size: 2em;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const experienciasSection = document.getElementById('nuestras-experiencias');
+            const navLink = document.querySelector('.main-nav a[href="#nuestras-experiencias"]');
+            const ctaButton = document.querySelector('.call-to-action-button[href="#nuestras-experiencias"]');
+
+            const showExperiences = (event) => {
+                event.preventDefault();
+                experienciasSection.style.display = 'block';
+                experienciasSection.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            navLink.addEventListener('click', showExperiences);
+            ctaButton.addEventListener('click', showExperiences);
+        });
+    </script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo.png-removebg-preview.png" alt="Logo Nómada Gastronomic Adventure">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#nuestras-experiencias">Nuestras experiencias</a></li>
+            
+            </ul>
+        </nav>
+        <div class="social-whatsapp">
+            <a href="https://www.instagram.com/nomadamza.turismo/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+5492612139092" target="_blank" class="whatsapp-button">WHATSAPP</a>
+        </div>
+    </header>
+
+    <main class="section" id="inicio">
+        <section class="intro-mendoza">
+            <h1>DOS MANERAS DE DESCUBRIR MENDOZA</h1>
+            <div class="options-container">
+                <div class="option-card">
+                    <div class="image-wrapper">
+                        <img src="img/experiencias a medida.png" alt="Experiencias a medida">
+                    </div>
+                    <h2>Experiencias a medida</h2>
+                    <p>Trabajamos juntos para crear una experiencia diseñada exclusivamente para tus gustos y necesidades. Desde un menú especial adaptado a tus preferencias, hasta servicios adicionales como shows en vivo, cabalgatas o trekking.</p>
+                    <a href="https://wa.me/+5492612139092" target="_blank" class="call-to-action-button">¡Consultar ahora!</a>
+                </div>
+                <div class="option-card">
+                    <div class="image-wrapper">
+                        <img src="img/experiencias prediseñadas.JPG" alt="Experiencias prediseñadas">
+                    </div>
+                    <h2>Experiencias prediseñadas</h2>
+                    <p>Nuestras experiencias prediseñadas te llevan a los escenarios más espectaculares de Mendoza, con un menú de 4 pasos cuidadosamente maridado con vinos de la región, y un servicio impecable.</p>
+                    <a href="#nuestras-experiencias" class="call-to-action-button">Ver experiencias</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="section" id="nuestras-experiencias">
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-image-wrapper">
+                    <img src="img/calidez de lunlunta.png" alt="Calidez de Lunlunta">
+                </div>
+                <h3>Calidez de Lunlunta</h3>
+                <p>El corazón de Nómada. Te invitamos a una experiencia íntima y completa en nuestra casa de Lunlunta, un refugio de paz donde la elegancia rústica se combina con un servicio impecable. Disfrutá de un menú de 4 pasos con maridaje en un ambiente diseñado para el deleite de todos tus sentidos.</p>
+                <a href="https://wa.me/+5492612139092" target="_blank" class="more-info-button">Más info</a>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-image-wrapper">
+                    <img src="img/momento junto al rio.jpg" alt="Momento junto al río">
+                </div>
+                <h3>Momento junto al río</h3>
+                <p>Hay un lugar donde la calma es el ingrediente principal y el paisaje, la mesa. Esta es una experiencia diseñada para desconectar del caos y reconectar con lo esencial: el sonido del agua y la compañía de quienes más querés. Trasladamos todo nuestro servicio de lujo a orillas del río, creando un espacio de pura serenidad donde el entorno natural es el verdadero protagonista.</p>
+                <a href="https://wa.me/+5492612139092" target="_blank" class="more-info-button">Más info</a>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-image-wrapper">
+                    <img src="img/Vista azul.png" alt="Vista azul">
+                </div>
+                <h3>Vista azul (Potrerillos)</h3>
+                <p>Te invitamos a vivir una aventura gastronómica en Potrerillos. Vista Azul es la combinación perfecta entre la alta cocina y la belleza salvaje de la montaña. Trasladamos nuestro banquete de lujo a un escenario natural imponente para crear un festín privado que se sentirá tan exclusivo como el lugar donde fue servido.</p>
+                <a href="https://wa.me/+5492612139092" target="_blank" class="more-info-button">Más info</a>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-image-wrapper">
+                    <img src="img/Aventura en la montaña.png" alt="Aventura en la montaña">
+                </div>
+                <h3>Aventura en la montaña (Valle de Uco)</h3>
+                <p>Esta experiencia está diseñada para quienes valoran la elegancia y la exclusividad. Es un festín privado que transforma la inmensidad de la naturaleza en un escenario íntimo y sofisticado. Cada detalle está cuidadosamente pensado, desde la selección de los vinos hasta la presentación de cada plato, para complementar la belleza salvaje que te rodea.</p>
+                <a href="https://wa.me/+5492612139092" target="_blank" class="more-info-button">Más info</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="acerca-de">
+        <div class="about-us">
+            <div class="about-image-wrapper">
+                <img src="img/IMG_1404.JPEG" alt="Quiénes somos - Nómada">
+            </div>
+            <div class="about-text">
+                <h1>Quiénes somos</h1>
+                <p>Somos Nómada, un sueño que nació de la pasión de tres amigas: Sofía, Albana y Martina. Juntas, decidimos romper el molde y redefinir la forma de vivir la gastronomía. Nuestra misión es simple, pero poderosa: combinar la alta cocina con los paisajes más espectaculares e inesperados de Mendoza, creando una aventura única en cada plato.</p>
+                <p>Cada experiencia que creamos está llena de amor y dedicación. Sofía, con su magia en la cocina, diseña y elabora menús exquisitos, encontrando el maridaje perfecto para cada bocado. Albana, el alma del detalle, se encarga de que la decoración y el servicio sean impecables, transformando cualquier lugar en un escenario íntimo y sofisticado. Y Martina, con su energía contagiosa, te acompaña desde el primer contacto, gestionando cada reserva y asegurándose de que tu aventura sea fluida y perfecta.</p>
+                <p>Con Nómada, no solo te ofrecemos una comida, te invitamos a ser parte de una historia. Somos el sabor de la aventura.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contacto">
+        <div class="contact-container">
+            <div class="contact-text">
+                <h1>Contáctanos</h1>
+                <p>Para reservas, consultas o para diseñar una experiencia a medida. Te ayudamos a crear un momento inolvidable en Mendoza.</p>
+            </div>
+            <div class="contact-form">
+            <iframe src="https://whatsform.com/VRiQmj" width="100%" height="600" frameborder="0"></iframe>
+             </div>
+                        
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
